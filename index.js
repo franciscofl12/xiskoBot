@@ -25,7 +25,7 @@ client.on('message', async message => {
   if (message.content.startsWith(client.prefix)) {
     const [cmdName, ...cmdArgs] = message.content.slice(client.prefix.length).trim().split(/\s+/);
 
-    if (['setup', 'sancion', 'suspenso', 'aprobado', 'sugerencia'].includes(cmdName)) {
+    if (['setup', 'sancion', 'suspenso', 'aprobado'].includes(cmdName)) {
       message.delete({ timeout: 100 });
     }
 
