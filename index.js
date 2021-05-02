@@ -25,7 +25,7 @@ client.on('message', async message => {
   if (message.content.startsWith(client.prefix)) {
     const [cmdName, ...cmdArgs] = message.content.slice(client.prefix.length).trim().split(/\s+/);
 
-    if (['setup', 'sancion', 'suspenso', 'aprobado'].includes(cmdName)) {
+    if (['setup', 'sancion', 'suspenso', 'aprobado','sugerencia'].includes(cmdName)) {
       message.delete({ timeout: 100 });
     }
 
@@ -87,7 +87,6 @@ client.on('message', async message => {
           await database.set(`${message.guild.id}.sancionChannel`, channel.id);
           return message.channel.send('Se ha guardado correctamente el canal en la base de datos.').then(e => e.delete({ timeout: 4000 }));
         }
-      }
     }
 
     if (cmdName == 'suspenso') {
@@ -165,4 +164,5 @@ client.on('message', async message => {
       });
     }
   }
+}
 });
