@@ -144,6 +144,25 @@ client.on('message', async message => {
           .setColor(15105570)
 		      .setFooter("© MurciaCity", "https://i.imgur.com/fcMxKTn.png"),
       );
+    } else if (cdName == 'sugerencia') {
+      const channel = message.guild.channels.cache.find(c => c.name === '『🤔』sugerencias')
+      if (!channel) return message.reply('No puede crear una sugerencia en este canal.')
+
+      const mensajeSugerencia = args.join(" ");
+      if(!mensajeSugerencia) return message.reply('Por favor, especifica que sugieres.');
+
+      const embed = new MessageEmbed()
+        .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true}))
+        .setDescription('**Sugerencia**: ${mensajeSugerencia}')
+        .setColor(15105570)
+        .setFooter("© MurciaCity", "https://i.imgur.com/fcMxKTn.png")
+      channel.send(embed).then((msg) => {
+        msg.react(':white_check_mark:');
+        msg.react(':x:');
+        message.delete();
+      }).catch((err)=>{
+        throw err;
+      });
     }
   }
 });
