@@ -1,7 +1,7 @@
 const { Client, User, MessageEmbed } = require('discord.js');
 const client = new Client();
 const db = require('megadb');
-const database = new db.crearDB({ nombre: 'config', carpeta: 'database' });
+const database = new db.crearDB({ nombre: 'config' });
 client.prefix = '!';
 
 function presence(){
@@ -25,7 +25,7 @@ client.on('message', async message => {
   if (message.content.startsWith(client.prefix)) {
     const [cmdName, ...cmdArgs] = message.content.slice(client.prefix.length).trim().split(/\s+/);
 
-    if (['setup', 'sancion', 'suspenso', 'aprobado','sugerencia'].includes(cmdName)) {
+    if (['setup', 'sancion', 'suspenso', 'aprobado', 'sugerencia'].includes(cmdName)) {
       message.delete({ timeout: 100 });
     }
 
