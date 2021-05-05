@@ -137,10 +137,10 @@ client.on('message', async message => {
       await channel.send(
         new MessageEmbed()
           .setTitle("MurciaCity Sanciones")
-          .addField('Usuario: ', user.user.username)
-          .addField('Staff: ', `${message.author.username}`)
-          .addField('Razon: ', `${reason}`)
-          .addField('Tiempo:', `${cmdArgs[1]}`)
+          .addField('   ▫ Usuario: ', user.user.username)
+          .addField('   ▫ Staff: ', `${message.author.username}`)
+          .addField('   ▫ Razon: ', `${reason}`)
+          .addField('   ▫ Tiempo:', `${cmdArgs[1]}`)
           .setColor(15105570)
 		      .setFooter("© MurciaCity", "https://i.imgur.com/fcMxKTn.png"),
       );
